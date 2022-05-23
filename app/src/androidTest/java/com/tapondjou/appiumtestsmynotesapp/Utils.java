@@ -8,6 +8,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
@@ -27,13 +30,13 @@ public class Utils {
         capabilities.setCapability("platformVersion", "12");
         capabilities.setCapability(MobileCapabilityType.UDID, "897X06F1Q");
         capabilities.setCapability("automationName", driverName);
-        capabilities.setCapability("app", "/Users/abelnguendiat./AndroidStudioProjects/AppiumTestsMyNotesApp/app-release.apk");
+        capabilities.setCapability("app", "/Users/abelnguendiat./Documents/GitHub/appium-tests-mynotesapp/app-release.apk");
         capabilities.setCapability("appPackage", "com.tapondjou.mynotesapp");
         capabilities.setCapability("appActivity", ".MainActivity");
         capabilities.setCapability("language", language);
         capabilities.setCapability("locale", locale);
         capabilities.setCapability("forceEspressoRebuild", "true");
-        URL url = new URL("http://192.168.0.199:4723/wd/hub/");
+        URL url = new URL("http://172.20.10.02:4723/wd/hub/");
         return new AppiumDriver<MobileElement>(url, capabilities);
 
     }
@@ -47,11 +50,11 @@ public class Utils {
         capabilities.setCapability("platformVersion", "12");
         capabilities.setCapability(MobileCapabilityType.UDID, "897X06F1Q");
         capabilities.setCapability("automationName", driverName);
-        capabilities.setCapability("app", "/Users/abelnguendiat./AndroidStudioProjects/AppiumTestsMyNotesApp/app-release.apk");
+        capabilities.setCapability("app", "/Users/abelnguendiat./Documents/GitHub/appium-tests-mynotesapp/app-release.apk");
         capabilities.setCapability("appPackage", "com.tapondjou.mynotesapp");
         capabilities.setCapability("appActivity", ".MainActivity");
         capabilities.setCapability("forceEspressoRebuild", "true");
-        URL url = new URL("http://192.168.0.199:4723/wd/hub/");
+        URL url = new URL("http://172.20.10.02:4723/wd/hub/");
         return new AppiumDriver<MobileElement>(url, capabilities);
 
     }
@@ -65,9 +68,5 @@ public class Utils {
     }
 
 
-    public static void takesScreenshot(String screenshotName, String locale, AppiumDriver<MobileElement> driver) throws IOException {
-        File screenshot = driver.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screenshot, new File("/Applications/MAMP/htdocs/screenshots/images/" + locale + "/" + screenshotName + ".png"));
-    }
 
 }
